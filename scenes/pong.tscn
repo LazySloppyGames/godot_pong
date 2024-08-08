@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwes72dyxs3xa"]
+
+[ext_resource type="Script" path="res://scripts/Controller.cs" id="1_hhtqj"]
+[ext_resource type="PackedScene" uid="uid://dh02ebmoiwquw" path="res://scenes/ball.tscn" id="2_65lnk"]
+[ext_resource type="PackedScene" uid="uid://bny4ywnqntcmw" path="res://scenes/paddle.tscn" id="2_elq75"]
+[ext_resource type="Script" path="res://scripts/leftPaddle.cs" id="2_nybfm"]
+[ext_resource type="Script" path="res://scripts/rightPaddle.cs" id="3_au1b4"]
+[ext_resource type="PackedScene" uid="uid://cga0v8ew11eru" path="res://scenes/vertical_bound.tscn" id="3_rcw1v"]
+[ext_resource type="PackedScene" uid="uid://b73bqsy1d6qrh" path="res://scenes/horizontal_bound.tscn" id="6_23am0"]
+
+[node name="Pong" type="Node2D"]
+script = ExtResource("1_hhtqj")
+
+[node name="RightScore" type="Label" parent="."]
+offset_left = 1026.0
+offset_top = 8.0
+offset_right = 1103.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 2
+
+[node name="LeftScore" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 8.0
+offset_right = 144.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 2
+
+[node name="LeftPaddle" parent="." instance=ExtResource("2_elq75")]
+position = Vector2(10, 152)
+script = ExtResource("2_nybfm")
+
+[node name="RightPaddle" parent="." instance=ExtResource("2_elq75")]
+position = Vector2(1142, 520)
+script = ExtResource("3_au1b4")
+
+[node name="Ball" parent="." instance=ExtResource("2_65lnk")]
+position = Vector2(576, 200)
+
+[node name="UpperBound" parent="." instance=ExtResource("6_23am0")]
+position = Vector2(576, -10)
+
+[node name="LowerBound" parent="." instance=ExtResource("6_23am0")]
+position = Vector2(576, 658)
+
+[node name="LeftGoal" parent="." instance=ExtResource("3_rcw1v")]
+position = Vector2(-10, 324)
+
+[node name="RightGoal" parent="." instance=ExtResource("3_rcw1v")]
+position = Vector2(1162, 324)
