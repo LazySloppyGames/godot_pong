@@ -63,9 +63,7 @@ public partial class Ball : CharacterBody2D
 	// Emit signal so the controller can adjust the score.
 	public void AwardPoint(String point)
 	{
-		GD.Print("Emitting signal...");
 		global.EmitSignal(nameof(Global2.ScoreGoal), point);
-		GD.Print("Signal sent... maybe.");
 	}
 	
 	public void ResetBall()

@@ -19,13 +19,11 @@ public partial class Controller : Node2D
 	{
 		if (winner == "left")
 		{
-			GD.Print("Left Point!");
 			leftScore++;
 			GetNode<Label>("LeftScore").Text = leftScore.ToString();
 		}
 		else
 		{
-			GD.Print("Right Point!");
 			rightScore++;
 			GetNode<Label>("RightScore").Text = rightScore.ToString();
 		}
